@@ -8,6 +8,7 @@ export function main() {
 
         console.log(`**************************************************`)
         console.log(`                                                  `)
+        console.log(`        BEM VINDO AO SISTEMA DE GERENCIAMENTO     `)
         console.log(`                   OTICA LOHAN                    `)
         console.log(`                                                  `)
         console.log(`**************************************************`)
