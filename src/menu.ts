@@ -1,6 +1,13 @@
 import readlinesync = require('readline-sync');
+import { Produto } from './model/Produto';
+import { ProdutoController } from './controller/ProdutoController';
+import { interfaceProdutoRepository } from './repository/interfaceProdutoRepository';
+import { ProdutoRepository } from './repository/ProdutoRepository';
+
 
 export function main() {
+
+    let produtos: ProdutoController = new ProdutoController();
 
     let opcao: number;
 
@@ -36,27 +43,69 @@ export function main() {
         switch (opcao) {
             case 1:
                 console.log(`Cadastrar Produto`);
-                
+
+                console.log(`Digite o ID do Produto: `);
+                let id = readlinesync.questionInt(``);
+
+                console.log(`Digite a Descrição do Produto: `);
+                let descricao = readlinesync.question(``);
+
+                console.log(`Digite o Preço do Produto: `);
+                let preco = readlinesync.questionFloat(``);
+
+                console.log(`Digite a Quantidade do Produto: `);
+                let quantidade = readlinesync.questionInt(``);
+
+                const novoProduto = new Produto(id, descricao, preco, quantidade);
+                produtos.cadastrar(novoProduto);
+
                 keyPress();
                 break;
             case 2:
                 console.log(`Listar todos os Produtos`);
+
+                produtos.listar();
                 
                 keyPress()
                 break;
             case 3:
                 console.log(`Buscar Produto por ID`);
 
+                console.log(`Digite o ID do Produto: `);
+                let idBusca = readlinesync.questionInt(``);
+
+                produtos.buscarPorId(idBusca);
                 keyPress()
                 break;
             case 4:
                 console.log(`Atualizar Dados do Produto`);
 
+                console.log(`Digite o ID do Produto: `);
+                let idAtualiza = readlinesync.questionInt(``);
+
+                console.log(`Digite a Descrição do Produto: `);
+                let descricaoAtualiza = readlinesync.question(``);
+
+                console.log(`Digite o Preço do Produto: `);
+                let precoAtualiza = readlinesync.questionFloat(``);
+
+                console.log(`Digite a Quantidade do Produto: `);
+                let quantidadeAtualiza = readlinesync.questionInt(``);
+
+                const produtoAtualizado = new Produto(idAtualiza, descricaoAtualiza, precoAtualiza, quantidadeAtualiza);
+                produtos.atualizar(produtoAtualizado);
+
+            
                 keyPress()
                 break;
             case 5:
                 console.log(`Apagar Produto`);
-                
+
+                console.log(`Digite o ID do Produto: `);
+                let idDeleta = readlinesync.questionInt(``);
+
+                produtos.deletar(idDeleta);
+            
                 keyPress()
                 break;
             default:

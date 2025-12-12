@@ -4,12 +4,12 @@ import { interfaceProdutoRepository } from "./interfaceProdutoRepository";
 export class ProdutoRepository implements interfaceProdutoRepository {
     private produtos: Produto[] = [];
     
-    cadastar(produto: Produto): void {
+    cadastrar(produto: Produto): void {
         const existe = this.produtos.some(p => p.id === produto.id);
         if (existe) {
             throw new Error(`Produto com ID ${produto.id} já existe.`);
         }
-        
+        this.produtos.push(produto);
     }
     listar(): Produto[] {
         return [...this.produtos];

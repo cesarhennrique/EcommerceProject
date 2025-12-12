@@ -1,15 +1,15 @@
-export abstract class Produto {
+export class Produto {
 
     private _id: number;
     private _nome: string;
     private _valor: number;
     private _quantidade: number;
 
-    constructor(id: number, nome: string, valor:number, quantdade: number) {
+    constructor(id: number, nome: string, valor:number, quantidade: number) {
         this._id = id;
         this._nome = nome;
         this._valor = valor;
-        this._quantidade = quantdade;
+        this._quantidade = quantidade;
 
     }
 

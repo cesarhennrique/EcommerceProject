@@ -2,7 +2,7 @@ import { Produto } from "../model/Produto";
 
 export interface interfaceProdutoRepository {
 
-    cadastar(produto: Produto): void;
+    cadastrar(produto: Produto): void;
 
     listar(): Produto[];
 
